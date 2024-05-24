@@ -1,5 +1,6 @@
 using ECS.Entities;
-
+using ECS.Components;
+using System;
 namespace ECS.Systems
 {
     public class InputSystem

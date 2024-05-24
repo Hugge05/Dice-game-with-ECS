@@ -1,5 +1,6 @@
 using ECS.Entities;
-
+using System;
+using ECS.Components;
 namespace ECS.Systems
 {
     public class DiceCheckSystem
