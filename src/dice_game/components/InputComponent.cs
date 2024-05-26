@@ -2,12 +2,12 @@ using System;
 
 namespace ECS.Components
 {
-    // The InputComponent class represents a component that can be attached to an entity.
-    // This component is used to store user input, specifically a guessed value.
+    // InputComponent-klassen representerar en komponent som kan fästas vid en entitet.
+    // Denna komponent används för att lagra användarens inmatning, specifikt en gissning.
     public class InputComponent
     {
-        // A field to store the guessed value provided by the user.
-        // The default value is initialized to 0.
+        // Ett fält för att lagra användarens gissning.
+        // Standardvärdet är initialiserat till 0.
         public Int32 guess = 0;
     }
 }
