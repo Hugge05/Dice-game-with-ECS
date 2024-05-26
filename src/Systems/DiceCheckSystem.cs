@@ -4,25 +4,32 @@ using System;
 
 namespace ECS.Systems
 {
-    // DiceCheckSystem klassen hanterar kontrollen av tärningsvärden.
+    /// <summary>
+    /// The DiceCheckSystem class represents a system that handles the dice check functionality.
+    /// </summary>
     public class DiceCheckSystem
     {
-        // Random-instans för att generera slumpmässiga tärningsvärden.
+        /// <summary>
+        /// A Random object used to generate random numbers.
+        /// </summary>
         private readonly Random rnd = new Random();
 
-        // Metod för att generera och uppdatera det aktuella tärningsvärdet för en given entitet.
+        /// <summary>
+        /// Method to generate a random dice value for a given entity.
+        /// </summary>
+        /// <param name="entity">The entity for which a random dice value is to be generated.</param>
         public void DiceNumber(Entity entity)
         {
-            // Hämtar DiceComponent från entiteten.
+            // Retrieves the DiceComponent from the entity.
             var diceComponent = entity.GetComponent<DiceComponent>();
 
-            // Kastar ett undantag om DiceComponent inte är korrekt initialiserad.
+            // Throws an exception if the DiceComponent or its values are not properly initialized.
             if (diceComponent == null || diceComponent.DiceValues == null || diceComponent.DiceValues.Length == 0)
             {
                 throw new InvalidOperationException("DiceComponent and its values must be properly initialized.");
             }
 
-            // Genererar ett slumpmässigt tärningsvärde baserat på DiceComponent's möjliga värden och uppdaterar det aktuella tärningsvärdet.
+            // Generates a random dice value and updates the CurrentDiceValue in DiceComponent.
             diceComponent.CurrentDiceValue = rnd.Next(1, diceComponent.DiceValues.Length + 1);
         }
     }

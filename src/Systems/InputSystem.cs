@@ -4,40 +4,47 @@ using System;
 
 namespace ECS.Systems
 {
-    // InputSystem klassen hanterar inmatning av nummer från användaren.
+    /// <summary>
+    /// The InputSystem class represents a system that handles the user's input.
+    /// </summary>
     public class InputSystem
     {
-        // Metod för att hantera inmatning av nummer från användaren för en given entitet.
+        /// <summary>
+        /// Method to handle the user's input for a given entity.
+        /// </summary>
+        /// <param name="entity">The entity for which the user's input is to be handled.</param>
         public void InputNumber(Entity entity)
         {
-            // Hämtar InputComponent från entiteten.
+            // Retrieves the InputComponent from the entity.
             InputComponent inputComponent = entity.GetComponent<InputComponent>();
 
-            // Kastar ett undantag om InputComponent inte finns på entiteten.
+            // Throws an exception if the InputComponent is not found on the entity.
             if (inputComponent == null)
             {
                 throw new InvalidOperationException("InputComponent is required but was not found on the entity.");
             }
 
-            // Ber användaren att ange ett nummer.
+            // Prompts the user to enter a number.
             Console.WriteLine("Please enter a number:");
 
-            // Läser in användarens inmatning från konsolen.
+            // Reads the user's input.
             string input = Console.ReadLine();
 
-            // Försöker konvertera användarens inmatning till ett heltal och uppdatera gissningsvärdet i InputComponent.
+            // Tries to convert the user's input to an integer and store it in the Guess property of the InputComponent.
             try
             {
                 inputComponent.Guess = Convert.ToInt32(input);
             }
+            // Catches a FormatException if the user's input is not a valid integer.
             catch (FormatException)
             {
-                // Fångar FormatException om användaren anger en ogiltig inmatning.
+                // Informs the user that their input was invalid.
                 Console.WriteLine("Invalid input. Please enter a valid integer.");
             }
+            // Catches an OverflowException if the user's input is too large or too small to be stored as an integer.
             catch (OverflowException)
             {
-                // Fångar OverflowException om det angivna numret är för stort eller för litet för att konverteras till ett heltal.
+                // Informs the user that their input was too large or too small.
                 Console.WriteLine("The number entered is too large or too small.");
             }
         }

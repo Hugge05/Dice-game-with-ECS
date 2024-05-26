@@ -1,62 +1,57 @@
-using ECS.Entities;
-using ECS.Components;
-using ECS.Systems;
-using System;
-
 namespace ECS
 {
-    // Program klassen representerar huvudprogrammet för ECS-applikationen.
+    /// <summary>
+    /// The Program class is the entry point of the application.
+    /// </summary>
     internal class Program
     {
-        // Main metoden är den första metoden som körs när programmet startar.
+        /// <summary>
+        /// The Main method is the entry point of the application.
+        /// </summary>
+        /// <param name="args">An array of command-line arguments.</param>
         static void Main(string[] args)
         {
-            // Skapar en ny entitet för spelaren med ID 1.
+            // Creates a new entity for the player.
             var player = new Entity(1);
 
-            // Skapar en instans av DiceComponent för att representera tärningen.
+            // Creates a new DiceComponent and InputComponent.
             var diceComponent = new DiceComponent();
-
-            // Skapar en instans av InputComponent för att representera användarens inmatning.
             var inputComponent = new InputComponent();
 
-            // Lägger till DiceComponent och InputComponent till spelaren.
+            // Adds the DiceComponent and InputComponent to the player entity.
             player.AddComponent(diceComponent);
             player.AddComponent(inputComponent);
 
-            // Skapar en instans av DiceCheckSystem för att hantera tärningskontrollen.
+            // Creates a new DiceCheckSystem and InputSystem.
             var diceCheckSystem = new DiceCheckSystem();
-
-            // Skapar en instans av InputSystem för att hantera användarens inmatning.
             var inputSystem = new InputSystem();
 
-            // Loopar sex gånger för att låta spelaren gissa tärningsvärdet.
+            // Loops 6 times to simulate 6 rounds of guessing.
             for (int i = 0; i < 6; i++)
             {
-                // Ber användaren gissa ett nummer.
+                // Prompts the user to guess a number.
                 Console.WriteLine("Guess a number");
 
-                // Genererar ett nytt tärningsvärde för spelaren.
+                // Generates a random dice value for the player.
                 diceCheckSystem.DiceNumber(player);
 
-                // Hanterar användarens inmatning.
+                // Handles the user's input for the player.
                 inputSystem.InputNumber(player);
 
-                // Hämtar spelarens gissning och det faktiska tärningsvärdet.
+                // Retrieves the user's guess and the actual dice value.
                 int guess = player.GetComponent<InputComponent>().Guess;
                 int actualDiceValue = player.GetComponent<DiceComponent>().CurrentDiceValue;
 
-                // Jämför spelarens gissning med det faktiska tärningsvärdet och skriver ut resultatet.
+                // Checks if the user's guess matches the actual dice value.
                 if (guess == actualDiceValue)
                 {
-                    // Om man har rätt så får man veta det
+                    // If the guess is correct, informs the user and exits the application.
                     Console.WriteLine("Du gissade rätt!");
-                    // Om man har rätt så avslutas programmet.
                     Environment.Exit(0);
                 }
                 else
                 {
-                    // Om man har fel så får man ett meddelande, och man loopas om igen.
+                    // If the guess is incorrect, informs the user and continues to the next round.
                     Console.WriteLine("Du gissade fel, gissa igen");
                 }
             }

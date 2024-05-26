@@ -1,16 +1,13 @@
-using System;
-
 namespace ECS.Components
 {
-    // InputComponent klassen representerar en komponent som hanterar användarens inmatning.
+    /// <summary>
+    /// The InputComponent class represents a component that handles the user's input.
+    /// </summary>
     public class InputComponent
     {
-        // Variabel för att lagra användarens gissning.
+        /// <summary>
+        /// Variable to store the user's guess.
+        /// </summary>
         public int Guess { get; set; }
-    
     }
 }
-
-
-
-

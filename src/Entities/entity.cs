@@ -3,31 +3,46 @@ using System.Collections.Generic;
 
 namespace ECS.Entities
 {
-    // Entity klassen representerar en entitet inom Entity-Component-System (ECS)-arkitekturen.
+    /// <summary>
+    /// The Entity class represents an entity within the Entity-Component-System (ECS) architecture.
+    /// </summary>
     public class Entity
     {
-        // Variabel för att lagra entitetens unika identifierare.
+        /// <summary>
+        /// Variable to store the unique identifier of the entity.
+        /// </summary>
         public int Id;
 
-        // Dictionary för att lagra komponenter som är associerade med entiteten.
-        // Nyckeln är komponentens typ och värdet är instansen av komponenten.
+        /// <summary>
+        /// Dictionary to store components associated with the entity.
+        /// The key is the component's type and the value is the instance of the component.
+        /// </summary>
         private Dictionary<Type, object> components = new Dictionary<Type, object>();
 
-        // Konstruktor för att initialisera entiteten med ett unikt identifierare.
+        /// <summary>
+        /// Constructor to initialize the entity with a unique identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier for the entity.</param>
         public Entity(int id)
         {
             Id = id;
         }
 
-        // Metod för att lägga till en komponent till entiteten.
-        // Komponenten läggs till i dictionaryn med dess typ som nyckel.
+        /// <summary>
+        /// Method to add a component to the entity.
+        /// The component is added to the dictionary with its type as the key.
+        /// </summary>
+        /// <param name="component">The component to be added to the entity.</param>
         public void AddComponent<T>(T component)
         {
             components[typeof(T)] = component;
         }
 
-        // Metod för att hämta en komponent av en specificerad typ från entiteten.
-        // Om komponenten finns, returneras den; annars returneras null.
+        /// <summary>
+        /// Method to retrieve a component of a specified type from the entity.
+        /// If the component exists, it is returned; otherwise, null is returned.
+        /// </summary>
+        /// <returns>The component of the specified type, or null if it does not exist.</returns>
         public T GetComponent<T>() where T : class
         {
             if (components.TryGetValue(typeof(T), out var component))
