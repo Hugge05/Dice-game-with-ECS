@@ -38,11 +38,13 @@ The game follows a simple architecture, utilizing C# for logic implementation an
 (Insert architectural diagrams here to illustrate the flow of the game.)
 
 **ECS Architecture Flowchart**
-![image](https://github.com/Hugge05/Dice-game-with-ECS/assets/75117937/c3624570-6ad1-4ed7-a063-26e822f0b2be)
+![image](https://github.com/Hugge05/Dice-game-with-ECS/assets/75117937/a7655162-f1b8-491a-b3e9-03ee14e92cf7)
+
 
 
 **Game Loop Sequence Diagram**
-![image](https://github.com/Hugge05/Dice-game-with-ECS/assets/75117937/284a2bca-8940-4b95-9754-5513d94eb3c0)
+![image](https://github.com/Hugge05/Dice-game-with-ECS/assets/75117937/1a8274b7-0530-4cf5-8014-240ab8c16df0)
+
 
 **2.2.2. Entities and Components**
 
