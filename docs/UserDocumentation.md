@@ -46,4 +46,4 @@ Q: Is it possible to input negative numbers or non-integer values?
 A: No, the game only accepts positive integer guesses between 1 and 6.
 
 **Contact Information**
-For additional assistance, queries, or feedback, please reach out via GitHub. Visit [Hugge05]'s profile on GitHub to contact me or report issues. We encourage users to open an issue for technical problems or feature suggestions related to the game.
+For additional assistance, queries, or feedback, please reach out via GitHub. Visit [Hugge05](https://github.com/Hugge05/)'s profile on GitHub to contact me or report issues. We encourage users to open an issue for technical problems or feature suggestions related to the game.
