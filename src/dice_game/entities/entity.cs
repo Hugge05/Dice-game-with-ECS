@@ -3,31 +3,31 @@ using System.Collections.Generic;
 
 namespace ECS.Entities
 {
-    // The Entity class represents an entity in the Entity-Component-System (ECS) architecture.
+    // Entity-klassen representerar en enhet i Entity-Component-System (ECS)-arkitekturen.
     public class Entity
     {
-        // Public property to store the entity's unique identifier.
+        // Offentlig egenskap för att lagra entitetens unika identifierare.
         public int Id;
 
-        // Dictionary to store the components associated with the entity.
-        // The key is the type of the component, and the value is the component instance.
+        // Dictionary för att lagra de komponenter som är associerade med entiteten.
+        // Nyckeln är typen av komponenten, och värdet är instansen av komponenten.
         private Dictionary<Type, object> components = new Dictionary<Type, object>();
 
-        // Constructor to initialize the entity with a unique identifier.
+        // Konstruktor för att initialisera entiteten med ett unikt identifierare.
         public Entity(int id)
         {
             Id = id;
         }
 
-        // Method to add a component to the entity.
-        // The component is added to the dictionary with its type as the key.
+        // Metod för att lägga till en komponent till entiteten.
+        // Komponenten läggs till i dictionaryn med dess typ som nyckel.
         public void AddComponent<T>(T component)
         {
             components[typeof(T)] = component;
         }
 
-        // Method to retrieve a component of a specified type from the entity.
-        // If the component is found, it is returned; otherwise, null is returned.
+        // Metod för att hämta en komponent av en specificerad typ från entiteten.
+        // Om komponenten hittas, returneras den; annars returneras null.
         public T GetComponent<T>() where T : class
         {
             if (components.TryGetValue(typeof(T), out var component))
