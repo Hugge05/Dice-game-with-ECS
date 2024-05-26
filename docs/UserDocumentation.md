@@ -25,7 +25,7 @@ Via Executable: Alternatively, you can run the game directly from the executable
 
 **User Manual**
 Starting the Game: Execute the game either via command line or using the provided executable file.
-
+Run the game by typing `dotnet build` in the terminal.
 **Game Instructions:**
 Guess the Number: At each turn, the game will prompt you to guess a number.
 Input Your Guess: Enter your guess using the keyboard and press Enter.
