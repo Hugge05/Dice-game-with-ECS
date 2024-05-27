@@ -9,7 +9,7 @@ To install and play the game, simply download the game folder.
 ## Usage
 1. Navigate to the downloaded game folder.
 2. Open the terminal.
-3. Run the game by typing `dotnet run` in the terminal.
+3. Run the game by typing `dotnet build` in the terminal.
 4. Alternatively, you can run the game directly from the executable file located in the bin/ directory. Navigate to the bin/ directory and double-click on the executable file to start the game.
 5. Follow the on-screen instructions to play the game.
 
